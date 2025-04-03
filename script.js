@@ -40,24 +40,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize all projects as visible
     filterProjects('all');
-});
 
-// Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navbar = document.querySelector('.navbar');
-const menu = document.querySelector('.menu');
+    const navbar = document.querySelector(".navbar");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector('.menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    menu.classList.toggle('active');
-});
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        navbar.classList.toggle("active");
+    });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && navbar.classList.contains('active')) {
-        navbar.classList.remove('active');
-        menu.classList.remove('active');
-    }
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            navbar.classList.remove('active');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            navbar.classList.remove('active');
+        }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 60) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').slice(1) === current) {
+                item.classList.add('active');
+            }
+        });
+    });
 });
 
 // Smooth scrolling for anchor links
