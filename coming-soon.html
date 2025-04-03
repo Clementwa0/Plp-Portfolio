@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Muli Clement</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .coming-soon {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .coming-soon-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .coming-soon h1 {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon-image {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-home {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .back-home i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon-content {
+                padding: 2rem;
+            }
+            .coming-soon h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon-content {
+                padding: 1.5rem;
+            }
+            .coming-soon h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="coming-soon">
+        <div class="coming-soon-content">
+            <h1>Oops! You caught me</h1>
+            <p>I'm currently working Hard to bring these project to life. Stay tuned!</p>
+            <img src="./asset/oops.gif" alt="GIF Animation" class="coming-soon-image" width="500" height="300">
+
+            <a href="index.html" class="btn primary back-home">
+                <i class="fa fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </section>
+</body>
+</html> 
